@@ -1,5 +1,3 @@
-// === SERVER V25 (UNIVERSAL - RENDER/RAILWAY) ===
-const WebSocket = require('ws');
 // === SERVER V25.1 (UNIVERSAL FIX) ===
 const WebSocket = require('ws');
 const http = require('http');
@@ -16,7 +14,7 @@ const wss = new WebSocket.Server({ server });
 console.log("🛡️ Iniciando Servidor Universal...");
 
 wss.on('connection', (ws, req) => {
-    console.log("Nova conexão detectada!"); // Log para debug
+    // console.log("Nova conexão detectada!");
     ws.isAlive = true;
     ws.on('pong', () => { ws.isAlive = true; });
 
@@ -44,7 +42,7 @@ setInterval(() => {
     });
 }, 30000);
 
-// 4. OUVIR NA PORTA CERTA (CRUCIAL PARA O RENDER/REPLIT)
+// 4. OUVIR NA PORTA CERTA (CRUCIAL PARA O RENDER)
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => {
     console.log(`📡 Ouvindo na porta ${PORT}`);
